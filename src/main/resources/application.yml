@@ -1,0 +1,65 @@
+# Server settings (ServerProperties)
+server:
+  port: 8000
+  address: 127.0.0.1
+  sessionTimeout: 30
+  contextPath: ""
+
+  # Tomcat specifics
+  tomcat:
+    accessLogEnabled: false
+    protocolHeader: x-forwarded-proto
+    remoteIpHeader: x-forwarded-for
+    basedir:
+    backgroundProcessorDelay: 30 # secs
+
+management:
+  address: 0.0.0.0
+  port: 9000
+  
+endpoints:
+  shutdown:
+    enabled: true
+
+spring:
+#  datasource:
+#    driverClassName: com.mysql.jdbc.Driver
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:mysql://localhost:3306/radius
+#    url: jdbc:postgresql://localhost/radius
+#    username: root
+#    password: 123qwe
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update #validate #update # create-drop
+      
+#for druid datasource
+datasource:
+  druid:
+    driverClassName: com.mysql.jdbc.Driver    
+    url: jdbc:mysql://localhost:3306/radius
+    username: root
+    password: 123qwe
+
+#for jedis
+jedis:
+  pool:
+    config:
+      maxActive: 20
+      maxIdle: 10
+      minIdle: 5
+      maxWait: 2000
+      testOnBorrow: true
+      testOnReturn: true
+    host: 127.0.0.1
+    port: 6379
+    timeout: 2000
+    password: 123456
+
+
+info:
+  app:
+    name: adfi
+    description: adfi
+    version: 0.1.0
