@@ -1,6 +1,7 @@
 buildscript {
     ext {
-	springBootVersion = '1.1.5.RELEASE'
+	    springBootVersion = '1.1.5.RELEASE'
+	    shiroVersion = '1.2.4-SNAPSHOT' //'1.2.3'
 	//jerseyVersion = '2.8'
     }
     repositories {
@@ -44,7 +45,10 @@ dependencies {
     //compile(project(":shiro-rbac-lib")){
     //	exclude module:"servlet-api"
     //}
+    compile("me.itsoho:shiro-rbac-lib:0.0.1-release")
+    compile("me.itsoho:shiro-rbac-config:0.0.1-release")
     compile("me.itsoho:shiro-redis-cluster:0.0.1-release")
+    //compile("org.crazycake:shiro-redis:2.4.2.1-RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-aop:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
@@ -60,12 +64,12 @@ dependencies {
     compile("com.alibaba:druid:1.0.8")
     
     //for security
-    compile("org.apache.shiro:shiro-core:1.2.2")
-    compile("org.apache.shiro:shiro-web:1.2.2")
-    compile("org.apache.shiro:shiro-spring:1.2.2")
-    compile("org.apache.shiro:shiro-aspectj:1.2.2")
-    compile("org.apache.shiro:shiro-ehcache:1.2.2")
-    //compile("org.apache.shiro:shiro-cas:1.2.2")
+    compile("org.apache.shiro:shiro-core:${shiroVersion}")
+    compile("org.apache.shiro:shiro-web:${shiroVersion}")
+    compile("org.apache.shiro:shiro-spring:${shiroVersion}")
+    compile("org.apache.shiro:shiro-aspectj:${shiroVersion}")
+    compile("org.apache.shiro:shiro-ehcache:${shiroVersion}")
+    //compile("org.apache.shiro:shiro-cas:${shiroVersion}")
    
     
     //for wadl
