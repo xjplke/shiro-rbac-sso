@@ -52,10 +52,10 @@ public class UserRealm extends AuthorizingRealm{
             throw new LockedAccountException("Username is locked!"); //帐号锁定
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-        		 manager.getUsername(), //用户名
-                 manager.getPassword(), //密码
-                 ByteSource.Util.bytes(""),//salt=username+salt
-                 getName()  //realm name
+        		manager.getUsername(), //用户名
+                manager.getPassword(), //密码
+                ByteSource.Util.bytes(""),//salt=username+salt
+                getName()  //realm name
         );
 		return authenticationInfo;
 	}
